@@ -1,5 +1,5 @@
 {
-  "name": "smartbox/camel-config-bundle",
+  "name": "melmccann/camel-config-bundle",
   "description": "Smartbox Camel Config Bundle",
   "type": "symfony-bundle",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "sensio/framework-extra-bundle": "^3.0.0",
     "incenteev/composer-parameter-handler": "^2.0.0",
     "jms/serializer-bundle": "^0.13.0",
-    "smartbox/integration-framework-bundle": "^1.0.0"
+    "melmccann/integration-framework-bundle": "^1.0.0"
   },
   "require-dev": {
     "phpunit/php-code-coverage": "~4.0",
@@ -31,6 +31,12 @@
   "config": {
     "bin-dir": "bin"
   },
+  "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/melmccann/integration-framework-bundle"
+        }
+    ],
   "minimum-stability": "dev",
   "prefer-stable" : true
 }
