@@ -19,7 +19,7 @@
     "sensio/framework-extra-bundle": "^3.0.0",
     "incenteev/composer-parameter-handler": "^2.0.0",
     "jms/serializer-bundle": "^0.13.0",
-    "melmccann/integration-framework-bundle": "^1.0.0"
+    "melmccann/integration-framework-bundle": "@dev"
   },
   "require-dev": {
     "phpunit/php-code-coverage": "~4.0",
