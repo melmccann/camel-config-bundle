@@ -22,15 +22,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->arrayNode('flows_directories')
-                    ->prototype('scalar')
-                        ->validate()
-                            ->ifTrue(
-                                function ($folder) {
-                                    return !file_exists($folder) || !is_dir($folder);
-                                }
-                            )
-                            ->thenInvalid('"%s" is not an existent directory.')
-                        ->end()
+                    ->prototype('variable')
                     ->end()
                 ->end()
                 ->scalarNode('frozen_flows_directory')->isRequired()->cannotBeEmpty()
