@@ -10,25 +10,32 @@
   },
   "require": {
     "php": ">=5.6",
-    "symfony/symfony": "^2.7.0",
-    "doctrine/annotations": "^1.2.0",
-    "symfony/assetic-bundle": "~2.3",
-    "symfony/monolog-bundle": "^2.4.0",
-    "sensio/distribution-bundle": "^4.0.0",
-    "sensio/framework-extra-bundle": "^3.0.0",
-    "incenteev/composer-parameter-handler": "^2.0.0",
-    "jms/serializer-bundle": "^0.13.0",
-    "melmccann/integration-framework-bundle": "@dev"
+    "ext-pcntl": "*",
+    "melmccann/integration-framework-bundle": "^1.37",
+    "symfony/config": "^2.8 || ^3.0",
+    "symfony/console": "^2.8 || ^3.0",
+    "symfony/dependency-injection": "^2.8 || ^3.0",
+    "symfony/finder": "^2.8 || ^3.0",
+    "symfony/form": "^2.8 || ^3.0",
+    "symfony/framework-bundle": "^2.8 || ^3.0",
+    "symfony/yaml": "^2.8 || ^3.0"
   },
   "require-dev": {
-    "phpunit/php-code-coverage": "~4.0",
-    "phpunit/phpunit-mock-objects": "~3.2",
-    "phpunit/phpunit": "~5.4.0",
-    "sensio/generator-bundle": "~2.3",
-    "smartbox/core-bundle": "^1.0.0"
+    "doctrine/annotations": "^1.4",
+    "doctrine/doctrine-bundle": "^1.6",
+    "doctrine/orm": "^2.5",
+    "jms/serializer-bundle": "^2.4",
+    "stomp-php/stomp-php": "^4.4",
+    "symfony/expression-language": "^2.8 || ^3.0",
+    "symfony/http-kernel": "^2.8 || ^3.0",
+    "symfony/monolog-bundle": "^2.4",
+    "symfony/options-resolver": "^2.8 || ^3.0",
+    "symfony/phpunit-bridge": "*",
+    "symfony/security-acl": "^3"
   },
   "config": {
-    "bin-dir": "bin"
+    "bin-dir": "bin",
+    "sort-packages": true
   },
   "repositories": [
         {
@@ -37,5 +44,5 @@
         }
     ],
   "minimum-stability": "dev",
-  "prefer-stable" : true
+  "prefer-stable": true
 }

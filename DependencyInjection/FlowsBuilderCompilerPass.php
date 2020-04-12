@@ -136,7 +136,7 @@ class FlowsBuilderCompilerPass implements CompilerPassInterface, FlowsBuilderInt
                     break;
 
                 case 'Smartbox\Integration\FrameworkBundle\DependencyInjection\Traits\UsesSerializer':
-                    $definition->addMethodCall('setSerializer', [new Reference('serializer')]);
+                    $definition->addMethodCall('setSerializer', [new Reference('jms_serializer')]);
                     break;
 
                 case 'Smartbox\Integration\FrameworkBundle\DependencyInjection\Traits\UsesValidator':
@@ -161,6 +161,10 @@ class FlowsBuilderCompilerPass implements CompilerPassInterface, FlowsBuilderInt
 
                 case 'Smartbox\Integration\FrameworkBundle\DependencyInjection\Traits\UsesCacheService':
                     $definition->addMethodCall('setCacheService', [new Reference('smartcore.cache_service')]);
+                    break;
+
+                case 'Smartbox\Integration\FrameworkBundle\DependencyInjection\Traits\UsesItineraryResolver':
+                    $definition->addMethodCall('setItineraryResolver', [new Reference('smartesb.itineray_resolver')]);
                     break;
 
                 case 'Symfony\Component\DependencyInjection\ContainerAwareTrait':
@@ -227,6 +231,7 @@ class FlowsBuilderCompilerPass implements CompilerPassInterface, FlowsBuilderInt
         $this->container->setDefinition($id, $definition);
         $definition->setProperty('id', $id);
         $definition->setArguments([$name]);
+        $definition->setPublic(true);
 
         return new Reference($id);
     }
@@ -256,6 +261,7 @@ class FlowsBuilderCompilerPass implements CompilerPassInterface, FlowsBuilderInt
 
         $this->container->setDefinition($id, $definition);
         $definition->setProperty('id', $id);
+        $definition->setPublic(true);
 
         return new Reference($id);
     }
@@ -270,7 +276,7 @@ class FlowsBuilderCompilerPass implements CompilerPassInterface, FlowsBuilderInt
         $this->container = $container;
         $this->processorDefinitionsRegistry = $this->container->getDefinition('smartesb.registry.processor_definitions');
 
-        $processorDefinitionsServices = $container->findTaggedServiceIds(self::TAG_DEFINITIONS);
+        $processorDefinitionsServices = $container->findTaggedServiceIds(self::TAG_DEFINITIONS, false);
         foreach ($processorDefinitionsServices as $id => $tags) {
             foreach ($tags as $attributes) {
                 $this->processorDefinitionsRegistry->addMethodCall('register', [$attributes['nodeName'], new Reference($id)]);
